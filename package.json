@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npx rollup -c",
     "dev": "npx rollup -c -w",
-    "start": "npx serve -n -l 5000 public"
+    "start": "npx serve -n -l 8080 public"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
