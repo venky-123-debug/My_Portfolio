@@ -1,10 +1,11 @@
 import svelte from "rollup-plugin-svelte"
 import commonjs from "@rollup/plugin-commonjs"
-import { nodeResolve } from "@rollup/plugin-node-resolve"
+import resolve from "@rollup/plugin-node-resolve"
 import livereload from "rollup-plugin-livereload"
 import { terser } from "rollup-plugin-terser"
 import css from "rollup-plugin-css-only"
 import preprocess from "svelte-preprocess"
+// import nodePolyfills from "rollup-plugin-polyfill-node"
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -37,6 +38,7 @@ export default {
     name: "app",
     file: "public/build/bundle.js",
   },
+
   plugins: [
     svelte({
       onwarn: (warning, handler) => {
@@ -63,13 +65,16 @@ export default {
     // some cases you'll need additional configuration -
     // consult the documentation for details:
     // https://github.com/rollup/plugins/tree/master/packages/commonjs
-    // resolve({
-    //   browser: true,
-    //   dedupe: ["svelte"],
-    // }),
-    nodeResolve(),
+    // nodeResolve(),
+    // commonjs(),
+    // nodePolyfills(),
+    resolve({
+      browser: true,
+      exportConditions: ["svelte"],
+      // extensions: ['.svelte'],
+      dedupe: ["svelte"],
+    }),
     commonjs(),
-
     // In dev mode, call `npm run start` once
     // the bundle has been generated
     !production && serve(),
