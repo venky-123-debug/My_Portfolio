@@ -3,7 +3,7 @@ module.exports = {
     {
       id: "publish-single",
       title: "home",
-      iconClasses: "fa-solid fa-file",
+      // iconClasses: "fa-solid fa-file",
       route: "#/home",
     }
   ],
@@ -11,7 +11,7 @@ module.exports = {
     {
       id: "documents-single",
       title: "about",
-      iconClasses: "fa-solid fa-file",
+      // iconClasses: "fa-solid fa-file",
       route: "#/about",
     }
   ],
@@ -19,7 +19,7 @@ module.exports = {
     {
       id: "resume",
       title: "resume",
-      iconClasses: "fa-solid fa-file",
+      // iconClasses: "fa-solid fa-file",
       route: "#/resume",
     }
   ],
@@ -27,16 +27,16 @@ module.exports = {
     {
       id: "portfolio",
       title: "portfolio",
-      iconClasses: "fa-solid fa-file",
-      route: "#/templates/document",
+      // iconClasses: "fa-solid fa-file",
+      route: "#/portfolio",
     }
   ],
   testimonial: [
     {
       id: "testimonial",
       title: "testimonial",
-      iconClasses: "fa-solid fa-house",
-      route: "#/settings/integration/home",
+      // iconClasses: "fa-solid fa-house",
+      route: "#/testimonial",
     }
   ],
 }
