@@ -18,7 +18,7 @@
     <a
     href={sitemap[item][0].route}
   >
-    <Navcard title={sitemap[item][0].title}
+    <Navcard title={sitemap[item][0].title} route={sitemap[item][0].route}
     />
   </a>
     {/each}
