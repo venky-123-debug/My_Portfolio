@@ -3,8 +3,6 @@
   export let route
   
   let currentContent = location.hash
-  console.log({currentContent})
-  console.log({route})
 </script>
 
 <div class="flex  group relative items-cente justify-center">
