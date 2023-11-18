@@ -1,4 +1,4 @@
-import Home from "../Pages/home/page_1.svelte"
+import Home from "../Pages/home/index.svelte"
 import ErrorCode404 from "../Pages/404/index.svelte"
 
 
