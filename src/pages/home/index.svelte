@@ -1,6 +1,8 @@
 <script>
-  import NavBar from "../navbar/navBar.svelte"
   import { onMount, onDestroy, afterUpdate } from "svelte"
+  import {push} from "svelte-spa-router"
+  import NavBar from "../navbar/navBar.svelte"
+  import About from "../about/index.svelte"
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
@@ -58,7 +60,7 @@
   })
 </script>
 
-<div class="relative flex min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+<div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
   <NavBar />
   <div class="flex justify-center m-auto h-full w-screen">
     <div class="flex flex-col mx-auto gap-3">
@@ -80,6 +82,11 @@
   </div>
 
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
-    <i class="fa-solid fa-chevron-down fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center" />
+    <!-- svelte-ignore missing-declaration -->
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <i on:click={() => {
+      push("/about")
+    }} class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center" />
   </div>
 </div>
+<About />
