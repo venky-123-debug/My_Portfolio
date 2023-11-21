@@ -67,11 +67,11 @@
       <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
       <div class="h-[48px]">
         {#if visibleText}
-          <div class="text-6xl text-left font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }} key={currentText}>
+          <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }} >
             {currentText}
           </div>
         {:else}
-          <div class="text-6xl text-left font-semibold text-green-300 w-full">&nbsp;</div>
+          <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
         {/if}
       </div>
       <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
