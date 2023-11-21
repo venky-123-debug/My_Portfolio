@@ -2,7 +2,7 @@ module.exports = {
   home: [
     {
       id: "publish-single",
-      title: "home",
+      title: "Home",
       // iconClasses: "fa-solid fa-file",
       route: "#/home",
     }
@@ -10,7 +10,7 @@ module.exports = {
   about: [
     {
       id: "documents-single",
-      title: "about",
+      title: "About",
       // iconClasses: "fa-solid fa-file",
       route: "#/about",
     }
@@ -18,7 +18,7 @@ module.exports = {
   resume: [
     {
       id: "resume",
-      title: "resume",
+      title: "Resume",
       // iconClasses: "fa-solid fa-file",
       route: "#/resume",
     }
@@ -26,7 +26,7 @@ module.exports = {
   portfolio: [
     {
       id: "portfolio",
-      title: "portfolio",
+      title: "Portfolio",
       // iconClasses: "fa-solid fa-file",
       route: "#/portfolio",
     }
@@ -34,7 +34,7 @@ module.exports = {
   testimonial: [
     {
       id: "testimonial",
-      title: "testimonial",
+      title: "Testimonial",
       // iconClasses: "fa-solid fa-house",
       route: "#/testimonial",
     }
