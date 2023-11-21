@@ -4,7 +4,10 @@
 
   const downloadPDF = () => {
     const element = document.getElementById("cv")
-    html2pdf(element)
+    const options = {
+      filename: "Venkatesh_Resume", // Set your desired filename here
+    }
+    html2pdf(element, options)
   }
 </script>
 
