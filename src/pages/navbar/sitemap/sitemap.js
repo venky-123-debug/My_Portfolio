@@ -4,7 +4,7 @@ module.exports = {
       id: "publish-single",
       title: "Home",
       // iconClasses: "fa-solid fa-file",
-      route: "#/home",
+      route: "#/",
     }
   ],
   about: [

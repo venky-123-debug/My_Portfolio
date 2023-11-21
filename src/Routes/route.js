@@ -4,7 +4,7 @@ import ErrorCode404 from "../Pages/404/index.svelte"
 
 
 export default {
-  "/home": Home,
+  "/": Home,
   "/about": About,
   // The catch-all route must always be last
   "*": ErrorCode404,
