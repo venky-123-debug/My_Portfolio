@@ -1,13 +1,62 @@
 <script>
   import html2pdf from "html2pdf.js"
   import Cv from "./cv.svelte"
+  import { onMount } from "svelte"
+
+  let element
+
+  onMount(() => {
+    element = document.getElementById("cv")
+  })
+
+  // const downloadPDF = () => {
+  //   const element = document.getElementById("cv")
+  //   const options = {
+  //     filename: "Venkatesh_Resume", // Set your desired filename here
+  //   }
+  //   html2pdf(element, options)
+  // }
+
+  // const downloadPDF = () => {
+  //   const element = document.getElementById('cv');
+
+  //   html2pdf(element, {
+  //     margin: 1,
+  //     filename: 'Venkatesh_Resume',
+  //     image: { type: 'jpeg', quality: 0.98 },
+  //     html2canvas: { scale: 2 },
+  //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+  //     pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+  //     output: 'blob',
+  //     // style: styles,
+  //   });
+  // };
 
   const downloadPDF = () => {
-    const element = document.getElementById("cv")
-    const options = {
-      filename: "Venkatesh_Resume", // Set your desired filename here
+    if (!element) {
+      console.error("Element with ID 'cv' not found.")
+      return
     }
-    html2pdf(element, options)
+
+    // Create a clone of the element to avoid altering the original styles
+    const clonedElement = element.cloneNode(true)
+
+    // Include the Tailwind CSS stylesheet in the cloned element
+    const tailwindStylesheet = document.createElement("link")
+    tailwindStylesheet.rel = "stylesheet"
+    tailwindStylesheet.href = "https://cdn.jsdelivr.net/npm/tailwindcss@3.2.4/dist/tailwind.min.css" // Adjust the URL based on your Tailwind version
+    clonedElement.appendChild(tailwindStylesheet)
+
+    // Download the PDF with the cloned element
+    html2pdf(clonedElement, {
+      margin: 10,
+      filename: "your-cv.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      pagebreak: { mode: ["avoid-all", "css", "legacy"] },
+      output: "blob",
+    })
   }
 </script>
 

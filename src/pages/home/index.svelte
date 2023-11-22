@@ -1,8 +1,9 @@
 <script>
   import { onMount, onDestroy, afterUpdate } from "svelte"
-  import {push} from "svelte-spa-router"
+  import { push } from "svelte-spa-router"
   import NavBar from "../navbar/navBar.svelte"
   import About from "../about/index.svelte"
+  import Cv from "../about/components/cv.svelte"
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
@@ -60,33 +61,39 @@
   })
 </script>
 
-<div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-  <NavBar />
-  <div class="flex justify-center m-auto h-full w-screen">
-    <div class="flex flex-col mx-auto gap-3">
-      <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
-      <div class="h-[48px]">
-        {#if visibleText}
-          <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }} >
-            {currentText}
-          </div>
-        {:else}
-          <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
-        {/if}
-      </div>
-      <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
-      <div class="text-center mt-6">
-        <button type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+<div class="flex flex-col overflow-x-hidden">
+  <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+    <NavBar />
+    <div class="flex justify-center m-auto h-full w-screen">
+      <div class="flex flex-col mx-auto gap-3">
+        <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
+        <div class="h-[48px]">
+          {#if visibleText}
+            <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }}>
+              {currentText}
+            </div>
+          {:else}
+            <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
+          {/if}
+        </div>
+        <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
+        <div class="text-center mt-6">
+          <button type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
-    <!-- svelte-ignore missing-declaration -->
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <i on:click={() => {
-      push("/about")
-    }} class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center" />
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
+      <!-- svelte-ignore missing-declaration -->
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <i
+        on:click={() => {
+          push("/about")
+        }}
+        class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center"
+      />
+    </div>
   </div>
+  <About />
+  <!-- <Cv /> -->
 </div>
-<About />
