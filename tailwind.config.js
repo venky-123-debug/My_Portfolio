@@ -6,7 +6,9 @@ module.exports = {
     extend: {
       colors: {
         orange: "#fb923c",
-        aboutBg:"#212529"
+        aboutBg:"#212529",
+        servicesBg:"#343a40",
+        primaryGreen:"#20c997"
       },
     },
   },

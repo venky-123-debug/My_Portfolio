@@ -4,6 +4,7 @@
   import NavBar from "../navbar/navBar.svelte"
   import About from "../about/index.svelte"
   import Cv from "../about/components/cv.svelte"
+  import Services from "../whatIDo/index.svelte"
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
@@ -96,4 +97,5 @@
   </div>
   <About />
   <!-- <Cv /> -->
+  <Services />
 </div>
