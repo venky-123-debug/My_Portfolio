@@ -1,3 +1,12 @@
+<script>
+  import EducationCard from "./components/educationCard.svelte"
+
+  let items = [
+    { year: "2017 - 2019", degree: "M.E (Cad/ Cam Engineering)", college: "Arignar Anna Institute of Engineering and Technology", objective: "Conducted diverse projects focused on the CAD design of components, employing advanced tools such as Catia and Ansys. Demonstrated proficiency in developing innovative solutions and ensuring optimal performance through meticulous analysis and modeling." },
+    { year: "2011 - 2015", degree: "B.E (Mechanical Engineering)", college: "Rajalakshmi Engineering College", objective: "Applied theoretical knowledge to hands-on projects, honing practical skills. Engaged in diverse projects, fostering creativity and effective teamwork. Actively sought extracurricular opportunities for continuous learning." },
+  ]
+</script>
+
 <div class="flex flex-col m-auto bg-aboutBg w-screen min-h-screen pb-60 overflow-hidden p-8">
   <div class="relative top-12 mx-auto h-32">
     <div class="relative text-center">
@@ -10,10 +19,10 @@
   </div>
 
   <div class="flex w-full pt-24 items-start justify-center gap-6">
-    <div class="w-full grid grid-cols-2 gap-8">
-      <!-- {#each items as item (item.title)}
-        <Cards {item} />
-      {/each} -->
+    <div class="w-full flex flex-col gap-8">
+      {#each items as item (item.year)}
+        <EducationCard {item} />
+      {/each}
     </div>
   </div>
 </div>
