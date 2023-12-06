@@ -12,6 +12,7 @@
   let currentText = texts[currentIndex]
   let interval
   let visibleText = false
+  let aboutPage
 
   function typewriter(node, { speed = 1, reverse = false }) {
     const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE
@@ -61,6 +62,9 @@
   afterUpdate(() => {
     if (!visibleText) updateText()
   })
+  function scrollToAbout() {
+    aboutPage.scrollIntoView({ behavior: 'smooth' });
+  }
 </script>
 
 <div class="flex flex-col overflow-x-hidden">
@@ -90,13 +94,16 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <i
         on:click={() => {
-          push("/about")
+         scrollToAbout()
         }}
         class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center"
       />
     </div>
   </div>
-  <About />
+  <div bind:this={aboutPage}>
+
+    <About />
+  </div>
   <!-- <Cv /> -->
   <Services />
   <Summary />
