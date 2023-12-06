@@ -63,14 +63,14 @@
     if (!visibleText) updateText()
   })
   function scrollToAbout() {
-    aboutPage.scrollIntoView({ behavior: 'smooth' });
+    aboutPage.scrollIntoView({ behavior: "smooth" })
   }
 </script>
 
 <div class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
     <NavBar />
-    <div class="flex justify-center m-auto h-full w-screen">
+    <div class="flex justify-center m-auto h-full w-screen" >
       <div class="flex flex-col mx-auto gap-3">
         <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
         <div class="h-[48px]">
@@ -94,21 +94,19 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <i
         on:click={() => {
-         scrollToAbout()
+          scrollToAbout()
         }}
         class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center"
       />
     </div>
   </div>
-  <div bind:this={aboutPage}>
-
+  <div bind:this={aboutPage} >
     <About />
   </div>
   <!-- <Cv /> -->
-  <Services />
-  <Summary />
+    <Services />
+    <Summary />
 </div>
 
 <style>
-
 </style>
