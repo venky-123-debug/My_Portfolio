@@ -34,9 +34,9 @@ module.exports = {
   testimonial: [
     {
       id: "testimonial",
-      title: "Testimonial",
+      title: "contact",
       // iconClasses: "fa-solid fa-house",
-      route: "#/testimonial",
+      route: "#/contact",
     }
   ],
 }

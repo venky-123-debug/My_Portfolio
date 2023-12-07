@@ -6,6 +6,7 @@
   import Cv from "../about/components/cv.svelte"
   import Services from "../whatIDo/index.svelte"
   import Summary from "../summaryPage/index.svelte"
+  import Contact from "../contact/index.svelte"
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
@@ -106,6 +107,7 @@
   <!-- <Cv /> -->
     <Services />
     <Summary />
+    <Contact />
 </div>
 
 <style>
