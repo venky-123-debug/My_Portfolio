@@ -25,6 +25,13 @@
   }
 
   onMount(() => {
+    setTimeout(() => {
+      const load = document.getElementById("mainLoader")
+      load.style.display = "none"
+      const mainContent = document.getElementById("mainContent")
+      mainContent.style.display = "block"
+    }, 500)
+
     // Set the initial value of scrollPercentage to 0
     scrollPercentage = 0
 
