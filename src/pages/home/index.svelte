@@ -51,7 +51,9 @@
   }
 
   onMount(() => {
-    window.addEventListener("scroll", updateCurrentContent)
+    window.addEventListener("scroll", updateCurrentContent);
+    window.addEventListener("hashchange", updateCurrentContent);
+    updateCurrentContent();
 
     interval = setInterval(() => {
       toggleVisibility()
@@ -60,8 +62,8 @@
   })
 
   onDestroy(() => {
-    window.removeEventListener("scroll", updateCurrentContent)
-
+    window.removeEventListener("scroll", updateCurrentContent);
+    window.removeEventListener("hashchange", updateCurrentContent);
     clearInterval(interval)
   })
 
@@ -92,7 +94,7 @@
         if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= window.innerHeight * 0.25) {
           currentContent = route
           // window.location.hash = currentContent
-          console.log({currentContent})
+          // console.log({currentContent})
           break
         }
       }
