@@ -2,7 +2,7 @@
   export let title = ""
   export let route
 
-  let currentContent = location.hash || "#/"
+ export let currentContent = location.hash || "#/"
 </script>
 
 <div class="flex group relative items-cente justify-center">

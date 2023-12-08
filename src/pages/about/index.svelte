@@ -1,5 +1,6 @@
 <script>
   import Details from "./components/details.svelte"
+
 </script>
 
 <div class="flex flex-col m-auto bg-aboutBg w-screen min-h-screen overflow-hidden p-8">

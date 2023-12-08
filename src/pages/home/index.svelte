@@ -14,6 +14,7 @@
   let interval
   let visibleText = false
   let aboutPage
+  let currentContent = "#/"
 
   function typewriter(node, { speed = 1, reverse = false }) {
     const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE
@@ -50,6 +51,8 @@
   }
 
   onMount(() => {
+    window.addEventListener("scroll", updateCurrentContent)
+
     interval = setInterval(() => {
       toggleVisibility()
       updateText()
@@ -57,6 +60,8 @@
   })
 
   onDestroy(() => {
+    window.removeEventListener("scroll", updateCurrentContent)
+
     clearInterval(interval)
   })
 
@@ -66,12 +71,39 @@
   function scrollToAbout() {
     aboutPage.scrollIntoView({ behavior: "smooth" })
   }
+
+  const sections = [
+    { id: "home", route: "#/" },
+    { id: "about", route: "#/about" },
+    { id: "services", route: "#/resume" },
+    { id: "summary", route: "#/portfolio" },
+    { id: "contact", route: "#/contact" },
+  ]
+
+  const updateCurrentContent = () => {
+    const scrollPosition = window.scrollY
+
+    for (const { id, route } of sections) {
+      const element = document.getElementById(id)
+      // console.log({element})
+
+      if (element) {
+        const rect = element.getBoundingClientRect()
+        if (rect.top <= window.innerHeight * 0.25 && rect.bottom >= window.innerHeight * 0.25) {
+          currentContent = route
+          // window.location.hash = currentContent
+          console.log({currentContent})
+          break
+        }
+      }
+    }
+  }
 </script>
 
 <div class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-    <NavBar />
-    <div class="flex justify-center m-auto h-full w-screen" >
+    <NavBar {currentContent} />
+    <div id="home" class="flex justify-center m-auto h-full w-screen">
       <div class="flex flex-col mx-auto gap-3">
         <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
         <div class="h-[48px]">
@@ -101,13 +133,20 @@
       />
     </div>
   </div>
-  <div bind:this={aboutPage} >
+  <div id="about" bind:this={aboutPage}>
     <About />
   </div>
   <!-- <Cv /> -->
+  <div id="services">
     <Services />
+  </div>
+  <div id="summary">
     <Summary />
+  </div>
+
+  <div id="contact">
     <Contact />
+  </div>
 </div>
 
 <style>
