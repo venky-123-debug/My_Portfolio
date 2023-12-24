@@ -1,12 +1,12 @@
 <script>
   import { afterUpdate, onDestroy, onMount } from "svelte"
+  
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
   let currentText = texts[currentIndex]
   let interval
   let visibleText = false
- 
 
   onMount(() => {
     interval = setInterval(() => {
@@ -69,7 +69,7 @@
     </div>
     <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
     <div class="text-center mt-6">
-      <button type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+      <button on:click type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
     </div>
   </div>
 </div>
