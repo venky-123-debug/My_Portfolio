@@ -3,13 +3,13 @@
   import Experince from "./components/experince.svelte"
 
   let items = [
-    { year: "2019", degree: "Master's Degree, CAD/CAM", college: "Arignar Anna Institute of Engineering and Technology", objective: "Conducted diverse projects focused on the CAD design of components, employing advanced tools such as Catia and Ansys. Demonstrated proficiency in developing innovative solutions and ensuring optimal performance through meticulous analysis and modeling." },
-    { year: "2015", degree: "Engineer's Degree, Mechanical Engineering", college: "Rajalakshmi Engineering College", objective: "Applied theoretical knowledge to hands-on projects, honing practical skills. Engaged in diverse projects, fostering creativity and effective teamwork. Actively sought extracurricular opportunities for continuous learning." },
+    { year: "Dec 2019", degree: "Master's Degree, CAD/CAM", college: "Arignar Anna Institute of Engineering and Technology", objective: "Conducted diverse projects focused on the CAD design of components, employing advanced tools such as Catia and Ansys. Demonstrated proficiency in developing innovative solutions and ensuring optimal performance through meticulous analysis and modeling." },
+    { year: "Jun 2015", degree: "Engineer's Degree, Mechanical Engineering", college: "Rajalakshmi Engineering College", objective: "Applied theoretical knowledge to hands-on projects, honing practical skills. Engaged in diverse projects, fostering creativity and effective teamwork. Actively sought extracurricular opportunities for continuous learning." },
   ]
 
   let experience = [
-    { year: "11-2022 - Present", role: "Junior Software Developer", org: "DocChain.io by Print2Block", objective: "Working on full stack projects using MESN (MongoDB, Express, Svelte and NodeJS) and TailwindCss for FrontEnd styling." },
-    { year: "07-2022 - 11-2022", role: "Software Developer - Internship", org: "DocChain.io by Print2Block", objective: "Learnt about MESN (MongoDB, Express, Svelte and NodeJS) stack and did projects in Handlebars and Bootstrap v5 focused on REST API. " },
+    { startYear: "Nov 2022 ", endYear:"Present", role: "Junior Software Developer", org: "DocChain.io by Print2Block", objective: "Working on full stack projects using MESN (MongoDB, Express, Svelte and NodeJS) and TailwindCss for FrontEnd styling." },
+    { startYear: "Jul 2022", endYear:"Nov 2022", role: "Software Developer - Internship", org: "DocChain.io by Print2Block", objective: "Learnt about MESN (MongoDB, Express, Svelte and NodeJS) stack and did projects in Handlebars and Bootstrap v5 focused on REST API. " },
   ]
 </script>
 
@@ -25,8 +25,8 @@
   </div>
   <div class="text-3xl font-bold pt-6 text-gray-200">Experience:</div>
   <div class="flex w-full pt-3 items-start justify-center gap-6">
-    <div class="w-full flex gap-6">
-      {#each experience as item (item.year)}
+    <div class="w-full flex flex-col gap-6">
+      {#each experience as item (item.startYear)}
         <Experince {item} />
       {/each}
     </div>
