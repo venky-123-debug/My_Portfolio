@@ -1,6 +1,6 @@
 <script>
   import { afterUpdate, onDestroy, onMount } from "svelte"
-  
+  import Icons from "../home/icons.svelte"
 
   let currentIndex = 0
   let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
@@ -55,21 +55,22 @@
   }
 </script>
 
-<div id="home" class="flex justify-center m-auto h-full w-screen">
-  <div class="flex flex-col mx-auto gap-3">
-    <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
-    <div class="h-[48px]">
-      {#if visibleText}
-        <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }}>
-          {currentText}
-        </div>
-      {:else}
-        <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
-      {/if}
-    </div>
-    <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
-    <div class="text-center mt-6">
-      <button on:click type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+  <div id="home" class="flex justify-center m-auto h-full w-screen">
+    <div class="flex flex-col mx-auto gap-3">
+      <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
+      <div class="h-[48px]">
+        {#if visibleText}
+          <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }}>
+            {currentText}
+          </div>
+        {:else}
+          <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
+        {/if}
+      </div>
+      <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
+      <div class="text-center mt-6">
+        <button on:click type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+      </div>
     </div>
   </div>
-</div>
+  <Icons />

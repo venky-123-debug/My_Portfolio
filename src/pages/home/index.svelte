@@ -63,6 +63,8 @@
 <div class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
     <NavBar {currentContent} />
+
+    
     <IntroPage on:click={scrollToContact} />
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
       <!-- svelte-ignore missing-declaration -->
