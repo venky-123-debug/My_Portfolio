@@ -3,8 +3,8 @@
   import Experince from "./components/experince.svelte"
 
   let items = [
-    { year: "2017 - 2019", degree: "M.E (Cad/ Cam Engineering)", college: "Arignar Anna Institute of Engineering and Technology", objective: "Conducted diverse projects focused on the CAD design of components, employing advanced tools such as Catia and Ansys. Demonstrated proficiency in developing innovative solutions and ensuring optimal performance through meticulous analysis and modeling." },
-    { year: "2011 - 2015", degree: "B.E (Mechanical Engineering)", college: "Rajalakshmi Engineering College", objective: "Applied theoretical knowledge to hands-on projects, honing practical skills. Engaged in diverse projects, fostering creativity and effective teamwork. Actively sought extracurricular opportunities for continuous learning." },
+    { year: "2019", degree: "Master's Degree, CAD/CAM", college: "Arignar Anna Institute of Engineering and Technology", objective: "Conducted diverse projects focused on the CAD design of components, employing advanced tools such as Catia and Ansys. Demonstrated proficiency in developing innovative solutions and ensuring optimal performance through meticulous analysis and modeling." },
+    { year: "2015", degree: "Engineer's Degree, Mechanical Engineering", college: "Rajalakshmi Engineering College", objective: "Applied theoretical knowledge to hands-on projects, honing practical skills. Engaged in diverse projects, fostering creativity and effective teamwork. Actively sought extracurricular opportunities for continuous learning." },
   ]
 
   let experience = [
@@ -23,19 +23,20 @@
       </div>
     </div>
   </div>
-  <div class="text-3xl font-bold pt-16 text-gray-200">Education:</div>
-  <div class="flex w-full pt-3 items-start justify-center gap-6">
-    <div class="w-full flex gap-6">
-      {#each items as item (item.year)}
-        <EducationCard {item} />
-      {/each}
-    </div>
-  </div>
   <div class="text-3xl font-bold pt-6 text-gray-200">Experience:</div>
   <div class="flex w-full pt-3 items-start justify-center gap-6">
     <div class="w-full flex gap-6">
       {#each experience as item (item.year)}
         <Experince {item} />
+      {/each}
+    </div>
+  </div>
+  <div class="text-3xl font-bold pt-16 text-gray-200">Education:</div>
+
+  <div class="flex w-full pt-3 items-start justify-center gap-6">
+    <div class="w-full flex flex-col gap-6">
+      {#each items as item (item.year)}
+        <EducationCard {item} />
       {/each}
     </div>
   </div>
@@ -68,7 +69,7 @@
         </div>
         <!-- express icon -->
 
-        <div class="flex items-center justify-center h-16  w-full bg-[#000000cc] p-3 rounded-md">
+        <div class="flex items-center justify-center h-16 w-full bg-[#000000cc] p-3 rounded-md">
           <div class="text-[#fff] w-auto flex items-center justify-center h-full text-lg font-semibold">ExpressJS</div>
           <div class="w-16 h-full pl-2 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1333.33 773.55" class="w-10 h-10" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd">
@@ -83,14 +84,14 @@
       </div>
       <div class="flex flex-col lg:flex-row gap-6 w-full">
         <!-- NodeJS -->
-        <div class="flex items-center justify-center h-16  w-full bg-[#000000cc] p-3 rounded-md">
+        <div class="flex items-center justify-center h-16 w-full bg-[#000000cc] p-3 rounded-md">
           <div class="text-green-500 w-auto flex items-center justify-center h-full text-lg font-semibold">NodeJS</div>
           <div class="w-16 h-full pl-2 flex items-center justify-center">
             <i class="fa-brands text-3xl text-green-500 fa-node"></i>
           </div>
         </div>
         <!-- svelte icon -->
-        <div class="flex items-center justify-center h-16  w-full bg-[#000000cc] p-3 rounded-md">
+        <div class="flex items-center justify-center h-16 w-full bg-[#000000cc] p-3 rounded-md">
           <div class="text-[#ff3e00] w-auto flex items-center justify-center h-full text-lg font-semibold">SvelteJS</div>
           <div class="w-16 h-full pl-2 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102.25 122.88" class="w-10 h-10">
@@ -122,7 +123,7 @@
     <div class="w-1/2 flex items-center gap-6 flex-col">
       <div class="flex flex-col lg:flex-row gap-6 w-full">
         <!-- tailwind-css -->
-        <div class="flex items-center justify-center h-16  w-full bg-[#000000cc] p-3 rounded-md">
+        <div class="flex items-center justify-center h-16 w-full bg-[#000000cc] p-3 rounded-md">
           <div class="text-[#06b6d4] w-auto flex items-center justify-center h-full text-lg font-semibold">Tailwind CSS</div>
           <div class="w-16 h-full pl-2 flex items-center justify-center">
             <svg id="Layer_1" data-name="Layer 1" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 73.29">
