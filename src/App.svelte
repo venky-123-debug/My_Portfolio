@@ -96,7 +96,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px; 
+    height: 4px;
     background: transparent; /* Background color of the scroll bar container */
     z-index: 1000;
     transition: width 0.3s; /* Add transition for smooth width change */

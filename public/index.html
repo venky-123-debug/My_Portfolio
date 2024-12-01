@@ -45,6 +45,7 @@
       :root {
       --color: #00909e;
       --mainColor: whitesmoke;
+      --venkateshColor: white; /* Venkatesh's shadow color */
       }
       #mainLoader {
       display: flex;
@@ -73,13 +74,24 @@
       }
       .color {
       color: var(--color);
-      transition: 0.5s ease;
-      }     
+      transition: 0.5s ease;      
+      }  
+      .venkatesh-shadow {
+    text-shadow: 5px 5px var(--venkateshColor); /* Shadow for "Venkatesh" using Chandran color */
+  }
+
+  .chandran-shadow {
+    text-shadow: 5px 5px var(--color); /* Shadow for "Chandran" using Venkatesh color */
+  }
+    
     </style>
   </head>
   <body>
     <div id="mainLoader">
       Venkatesh<span class="color">Chandran</span></i>
+      <!-- <span class="chandran-shadow">Venkatesh</span>
+      <span class="venkatesh-shadow color">Chandran</span> -->
+     
     </div>
     <div id="mainContent" style="display: none"></div>
     <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/26b3d632d0.css" crossorigin="anonymous" /> -->

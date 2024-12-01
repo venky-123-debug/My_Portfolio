@@ -88,7 +88,7 @@
     </div>
     <div class="lg:text-2xl sm:text-base md:text-lg text-sm mt-3 font-normal text-gray-300 text-center">Based in {myDetails?.personalInfo?.city}, {myDetails?.personalInfo?.state}</div>
     <div class="text-center mt-6">
-      <button type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+      <button type="button" on:click class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
     </div>
   </div>
 </div>

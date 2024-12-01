@@ -15,7 +15,7 @@
   }
 </script>
 
-<div class="fixed w-screen min-h-screen {menuOpen ? 'bg-black' : ''} overflow-hidden flex-col p-6 z-50">
+<div class="fixed w-screen {menuOpen ? 'bg-black z-50  min-h-screen' : 'z-10'} overflow-hidden flex-col p-6">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a>
@@ -30,9 +30,9 @@
         menuOpen = !menuOpen
       }}
       type="button"
-      class="w-10 h-10 text-white hover:scale-110"
+      class="text-white hover:scale-110"
     >
-      <i class="fa-solid {menuOpen ? 'fa-x' : 'fa-bars text-lg'} "></i>
+      <i class="fa-solid text-xl {menuOpen ? 'fa-x' : 'fa-bars text-lg'} "></i>
     </button>
   </div>
   {#if menuOpen}
