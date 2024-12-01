@@ -4,7 +4,7 @@
   let menuOpen = false
 </script>
 
-<div class="fixed w-screen min-h-screen overflow-hidden pt-6 pr-12 z-50 pb-4 pl-12">
+<div class="fixed w-screen min-h-screen {menuOpen ? 'bg-black' : ''} overflow-hidden flex-col p-6 z-50">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a>
@@ -25,7 +25,7 @@
     </button>
   </div>
   {#if menuOpen}
-    <div class="navLinks bg-black">
+    <div class="navLinks grid pb-10 text-center bg-black">
       <ul>
         <li class="buttons" data-text="HOME">HOME</li>
         <li class="buttons" data-text="SKILLS">SKILLS</li>
@@ -38,12 +38,6 @@
 </div>
 
 <style>
-  .navLinks {
-    position: relative;
-    text-align: center;
-    display: grid;
-  }
-
   .navLinks > ul li {
     margin: auto;
     font-size: 30px;
