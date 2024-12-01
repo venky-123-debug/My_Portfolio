@@ -1,4 +1,4 @@
-export default myDetails = {
+module.exports.myDetails = {
   name: "Venkatesh C",
   email: "venkatbe26494@gmail.com",
   phone: "7402161837",
@@ -15,7 +15,7 @@ export default myDetails = {
   ],
   professionalObjective: "Aiming to excel in IT by embracing new roles, responsibilities, and technologies. Seeking a Full Stack Software Developer role to leverage my skills in crafting efficient, scalable solutions that drive user satisfaction and business growth.",
   professionalSummary: {
-    experience: "1.9 years in web development, specializing in HTML, CSS, JavaScript, Svelte, TailwindCSS, MongoDB, Nginx, and Redis.",
+    experience: `1.9 years in web development, specializing in HTML, CSS, JavaScript, Svelte, TailwindCSS, MongoDB, Nginx, and Redis.`,
     skills: ["Designing and implementing RESTful APIs using NodeJS", "Managing MongoDB database", "Deploying applications using Nginx", "Managing server-side caching with Redis", "Version control using Git and Bitbucket", "Working on Linux and Windows operating systems", "Quick learner", "Can work independently or in a team environment"],
   },
   technicalSummary: {

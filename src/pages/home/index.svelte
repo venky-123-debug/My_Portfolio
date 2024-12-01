@@ -1,27 +1,23 @@
 <script>
-  import { onMount, onDestroy, afterUpdate } from "svelte"
-  import { push } from "svelte-spa-router"
-  import NavBar from "../navbar/navBar.svelte"
+  import { onMount, onDestroy } from "svelte"
+  // import NavBar from "../navbar/navBar.svelte"
   import About from "../about/index.svelte"
-  import Cv from "../about/components/cv.svelte"
   import Services from "../whatIDo/index.svelte"
   import Summary from "../summaryPage/index.svelte"
   import Contact from "../contact/index.svelte"
   import IntroPage from "../introPage/index.svelte"
+  import NewNavBar from "../newNavBar/index.svelte"
+
+  import { myDetails } from "../../shared/myDetails"
 
   let aboutPage
   let currentContent = "#/"
 
   onMount(() => {
-    window.addEventListener("scroll", updateCurrentContent);
-    window.addEventListener("hashchange", updateCurrentContent);
-    updateCurrentContent();
-
+    updateCurrentContent()
   })
 
   onDestroy(() => {
-    window.removeEventListener("scroll", updateCurrentContent);
-    window.removeEventListener("hashchange", updateCurrentContent);
     clearInterval(interval)
   })
   function scrollToAbout() {
@@ -41,8 +37,6 @@
   ]
 
   const updateCurrentContent = () => {
-    const scrollPosition = window.scrollY
-
     for (const { id, route } of sections) {
       const element = document.getElementById(id)
       // console.log({element})
@@ -60,11 +54,12 @@
   }
 </script>
 
+<svelte:window on:scroll={updateCurrentContent} on:hashchange={updateCurrentContent} />
 <div class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-    <NavBar {currentContent} />
+    <!-- <NavBar {currentContent} /> -->
+    <NewNavBar {myDetails} />
 
-    
     <IntroPage on:click={scrollToContact} />
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
       <!-- svelte-ignore missing-declaration -->
