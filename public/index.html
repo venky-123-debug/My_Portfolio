@@ -33,6 +33,12 @@
       }
       body {
       margin: 0;
+      color: var(--mainColor);
+      position: relative;
+      overflow: hidden;
+      overflow-y: scroll;
+      background-color: #171717;
+      color: var(--mainColor);
       }
       :root {
       --color: #00909e;
@@ -61,13 +67,17 @@
       /* opacity: 0; */
       }
       #mainLoader {
-      font-size: 50px;
+      font-size: 60px;
       }
+      .color {
+      color: var(--color);
+      transition: 0.5s ease;
+      }     
     </style>
   </head>
   <body>
     <div id="mainLoader">
-      Venkatesh<span class="color">&nbsp;Chandran</span></i>
+      Venkatesh<span class="color">Chandran</span></i>
     </div>
     <div id="mainContent" style="display: none"></div>
     <!-- <link rel="stylesheet" href="https://kit.fontawesome.com/26b3d632d0.css" crossorigin="anonymous" /> -->
