@@ -2,35 +2,53 @@
   import { afterUpdate, onDestroy, onMount } from "svelte"
   import Icons from "../home/icons.svelte"
 
+  export let texts = []
+  export let myDetails = {}
+
   let currentIndex = 0
-  let texts = ["I'm Venkatesh. C", "I'm a Web Developer"]
-  let currentText = texts[currentIndex]
+  let currentText = ""
   let interval
   let visibleText = false
 
-  onMount(() => {
+  $: if (texts.length && currentText === "") {
+    currentText = texts[currentIndex]
+    startTypewriter()
+  }
+
+  const startTypewriter = () => {
     interval = setInterval(() => {
       toggleVisibility()
-      updateText()
-    }, 2500)
+    }, 3700)
+  }
+
+  onMount(() => {
+    // Start typewriter immediately after texts are loaded
+    if (texts.length) {
+      currentText = texts[currentIndex]
+      startTypewriter() // Start without waiting for interval onMount
+    }
   })
 
   afterUpdate(() => {
     if (!visibleText) updateText()
   })
+
   onDestroy(() => {
     clearInterval(interval)
   })
+
   const updateText = () => {
-    currentIndex = (currentIndex + 1) % texts.length
-    currentText = texts[currentIndex]
+    if (texts.length > 0) {
+      currentIndex = (currentIndex + 1) % texts.length
+      currentText = texts[currentIndex]
+    }
   }
 
   const toggleVisibility = () => {
-    // Toggle the visibility every 500ms
     visibleText = !visibleText
   }
-  function typewriter(node, { speed = 1, reverse = false }) {
+
+  const typewriter = (node, { speed = 1, reverse = false }) => {
     const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE
 
     if (!valid) {
@@ -55,22 +73,30 @@
   }
 </script>
 
-  <div id="home" class="flex justify-center m-auto h-full w-screen">
-    <div class="flex flex-col mx-auto gap-3">
-      <div class="text-4xl font-medium text-gray-300 text-center">Hello World</div>
-      <div class="h-[48px]">
-        {#if visibleText}
-          <div class="text-6xl text-center font-semibold text-green-300 w-full" transition:typewriter={{ speed: 1, reverse: false }}>
-            {currentText}
-          </div>
-        {:else}
-          <div class="text-6xl text-center font-semibold text-green-300 w-full">&nbsp;</div>
-        {/if}
-      </div>
-      <div class="text-3xl mt-3 font-normal text-gray-300 text-center">based in Chennai, Tamil Nadu</div>
-      <div class="text-center mt-6">
-        <button on:click type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
-      </div>
+<div id="home" class="flex justify-center m-auto h-full w-screen">
+  <div class="flex flex-col mx-auto gap-3">
+    <div class="lg:text-2xl sm:text-base md:text-lg text-sm font-medium text-gray-300 text-center">Hello World</div>
+    <span class="lg:text-2xl sm:text-base md:text-lg text-sm text-center font-semibold text-white">I'm&nbsp;</span>
+    <div class="lg:h-[48px] h-5 sm:h-10 flex justify-center items-center">
+      {#if visibleText}
+        <span class="lg:text-5xl sm:text-base md:text-lg text-sm font-semibold text-color" transition:typewriter={{ speed: 1 }}>
+          {currentText}
+        </span>
+      {:else}
+        <span class="text-6xl font-semibold text-green-300">&nbsp;</span>
+      {/if}
+    </div>
+    <div class="lg:text-2xl sm:text-base md:text-lg text-sm mt-3 font-normal text-gray-300 text-center">Based in {myDetails?.personalInfo?.city}, {myDetails?.personalInfo?.state}</div>
+    <div class="text-center mt-6">
+      <button type="button" class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
     </div>
   </div>
-  <Icons />
+</div>
+
+<Icons />
+
+<style>
+  .text-color {
+    color: var(--color);
+  }
+</style>

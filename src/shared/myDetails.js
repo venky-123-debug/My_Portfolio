@@ -2,7 +2,7 @@ module.exports.myDetails = {
   name: "Venkatesh C",
   email: "venkatbe26494@gmail.com",
   phone: "7402161837",
-  runningText: ["a Full Stack Web Developer.", "Skilled in Svelte & TailwindCSS.", "Experienced with Node.js & MongoDB.", "I build seamless user experiences."],
+  runningText: ["a Full Stack Web Developer.", "Skilled in Svelte & TailwindCSS.", "Building seamless user experiences.", "Experienced with Node.js & MongoDB.", "Experienced with GIT & NGINX."],
   socials: [
     {
       type: "LinkedIn",
@@ -99,10 +99,12 @@ module.exports.myDetails = {
       technologies: ["Svelte", "TailwindCSS", "JavaScript"],
     },
   ],
-  personalInformation: {
+  personalInfo: {
     dateOfBirth: "26-04-1994",
     nationality: "Indian",
     gender: "Male",
+    city: "Chennai",
+    state: "Tamil Nadu",
     languages: ["English", "Tamil", "Telugu"],
     address: "Senthil Nagar, 8th Street, Vignesh Villa 2nd Floor, Perungudi, Chennai-96",
   },
