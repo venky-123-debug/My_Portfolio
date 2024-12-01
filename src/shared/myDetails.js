@@ -2,7 +2,8 @@ export default myDetails = {
   name: "Venkatesh C",
   email: "venkatbe26494@gmail.com",
   phone: "7402161837",
-  urls: [
+  runningText: ["a Full Stack Web Developer.", "Skilled in Svelte & TailwindCSS.", "Experienced with Node.js & MongoDB.", "I build seamless user experiences."],
+  socials: [
     {
       type: "LinkedIn",
       url: "https://www.linkedin.com/in/venkatesh-c-4412439a/",
