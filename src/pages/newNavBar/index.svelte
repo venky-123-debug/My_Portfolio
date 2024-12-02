@@ -8,6 +8,12 @@
 
   const handleNavigation = (e) => {
     try {
+      let element = document.getElementById(e.detail.id)
+      setTimeout(() => {
+        menuOpen = false
+        element.scrollIntoView({ behavior: "smooth" })
+      }, 50)
+
       console.log("Clicked Menu ID:", e.detail.id)
     } catch (error) {
       console.error(error)
