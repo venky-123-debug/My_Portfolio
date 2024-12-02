@@ -73,7 +73,7 @@
   }
 </script>
 
-<div id="home" class="flex justify-center m-auto h-full w-screen">
+<div class="flex justify-center m-auto h-full w-screen">
   <div class="flex flex-col mx-auto gap-3">
     <div class="lg:text-2xl sm:text-base md:text-lg text-sm font-medium text-gray-300 text-center">Hello World</div>
     <span class="lg:text-2xl sm:text-base md:text-lg text-sm text-center font-semibold text-white">I'm&nbsp;</span>

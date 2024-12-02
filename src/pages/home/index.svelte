@@ -37,7 +37,7 @@
   }
 </script>
 
-<div class="flex flex-col overflow-x-hidden">
+<div id="home" class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col select-none w-screen {!menuOpen ? 'overflow-hidden min-h-screen' : ''} bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
     {#if !menuOpen}
       <TopScroll bind:showScrollToTopButton />
@@ -48,12 +48,7 @@
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
       <!-- svelte-ignore missing-declaration -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <i
-        on:click={() => {
-          scrollToAbout()
-        }}
-        class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center"
-      />
+      <i on:click={scrollToAbout} class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center" />
     </div>
   </div>
   <div id="about" bind:this={aboutPage}>
