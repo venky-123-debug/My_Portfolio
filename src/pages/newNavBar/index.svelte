@@ -8,9 +8,9 @@
 
   const handleNavigation = (e) => {
     try {
+      menuOpen = false
       let element = document.getElementById(e.detail.id)
       setTimeout(() => {
-        menuOpen = false
         element.scrollIntoView({ behavior: "smooth" })
       }, 50)
 

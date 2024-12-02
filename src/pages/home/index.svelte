@@ -37,8 +37,8 @@
   }
 </script>
 
-<div class="flex flex-col {menuOpen ? 'overflow-hidden h-full' : 'overflow-x-hidden'} ">
-  <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+<div class="flex flex-col overflow-x-hidden">
+  <div class="relative flex flex-col select-none w-screen {!menuOpen ? 'overflow-hidden min-h-screen' : ''} bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
     {#if !menuOpen}
       <TopScroll bind:showScrollToTopButton />
     {/if}
