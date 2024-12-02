@@ -48,6 +48,7 @@
   .navLinks ul li:hover::after {
     content: attr(data-text);
     opacity: 1;
+    font-family: "aldrich";
     letter-spacing: 10px;
   }
 </style>
