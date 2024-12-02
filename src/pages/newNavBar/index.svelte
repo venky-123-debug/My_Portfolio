@@ -3,7 +3,7 @@
 
   export let myDetails
 
-  let menuOpen = false
+  export let menuOpen = false
   let menuItems = ["HOME", "ABOUT", "SERVICES", "SUMMARY", "CONTACT"]
 
   const handleNavigation = (e) => {

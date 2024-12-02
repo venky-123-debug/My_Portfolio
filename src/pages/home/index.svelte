@@ -6,10 +6,12 @@
   import Contact from "../contact/index.svelte"
   import IntroPage from "../introPage/index.svelte"
   import NewNavBar from "../newNavBar/index.svelte"
-  import { myDetails } from "../../shared/myDetails"
+  import { myDetails } from "../../scripts/myDetails"
+  import TopScroll from "../../shared/topScroll.svelte"
 
   let aboutPage
   let texts = []
+  let menuOpen = false
 
   onMount(() => {
     texts = [myDetails.name, ...myDetails.runningText]
@@ -29,7 +31,8 @@
 
 <div class="flex flex-col overflow-x-hidden">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-    <NewNavBar {myDetails} />
+    <TopScroll />
+    <NewNavBar {myDetails} bind:menuOpen />
 
     <IntroPage on:click={scrollToContact} bind:texts {myDetails} />
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
@@ -58,6 +61,3 @@
     <Contact />
   </div>
 </div>
-
-<style>
-</style>

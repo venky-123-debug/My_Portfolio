@@ -1,0 +1,57 @@
+<script>
+  import { afterUpdate, onMount } from "svelte"
+
+  let scrollPercentage = 0
+  let showScrollToTopButton = false
+
+  function updateScrollBar() {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+    const rawScrollPercentage = (window.scrollY / scrollableHeight) * 100
+
+    // Ensure that scrollPercentage is never less than zero and never exceeds 100
+    scrollPercentage = Math.max(0, Math.min(rawScrollPercentage, 100))
+
+    // Show or hide the Scroll to Top button based on scroll position
+    showScrollToTopButton = window.scrollY > window.innerHeight
+  }
+  onMount(() => {
+    // Set the initial value of scrollPercentage to 0
+    scrollPercentage = 0
+
+    // Initial call to set the initial scrollPercentage
+    updateScrollBar()
+
+    // Cleanup event listener on component destruction
+    return () => {
+      window.removeEventListener("scroll", updateScrollBar)
+    }
+  })
+
+  afterUpdate(() => {
+    updateScrollBar()
+  })
+</script>
+
+<svelte:window on:scroll={updateScrollBar} />
+
+<div class="progress-bar-container">
+  <div class="progress-bar" style="width: {scrollPercentage}%"></div>
+</div>
+
+<style>
+  .progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent; /* Background color of the scroll bar container */
+    z-index: 1000;
+    transition: width 0.3s; /* Add transition for smooth width change */
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: var(--color); /* Color of the scroll bar */
+  }
+</style>
