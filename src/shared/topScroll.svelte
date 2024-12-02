@@ -1,8 +1,8 @@
 <script>
   import { afterUpdate, onMount } from "svelte"
 
+  export let showScrollToTopButton = false
   let scrollPercentage = 0
-  let showScrollToTopButton = false
 
   function updateScrollBar() {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight

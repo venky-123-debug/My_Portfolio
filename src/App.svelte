@@ -3,13 +3,6 @@
   import routes from "./Routes/route"
   import { onMount } from "svelte"
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Add smooth scroll animation
-    })
-  }
-
   onMount(() => {
     setTimeout(() => {
       const load = document.getElementById("mainLoader")
@@ -20,18 +13,12 @@
   })
 </script>
 
-<div class="relative">
-  <div class="height">
-    <Router {routes} />
-  </div>
+<!-- <div class="relative">
+  <div class="height"> -->
+<Router {routes} />
 
-  {#if showScrollToTopButton}
-    <button on:click={scrollToTop} class="fixed bottom-6 right-6 text-white font-semibold z-20">
-      <i class="fa-solid fa-angles-up"></i>
-      &nbsp;Scroll to Top
-    </button>
-  {/if}
-</div>
+<!-- </div> -->
+<!-- </div> -->
 
 <style global lang="postcss">
   @tailwind base;

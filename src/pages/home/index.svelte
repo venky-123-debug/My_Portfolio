@@ -8,10 +8,12 @@
   import NewNavBar from "../newNavBar/index.svelte"
   import { myDetails } from "../../scripts/myDetails"
   import TopScroll from "../../shared/topScroll.svelte"
+  import Scroll2Top from "../../shared/scroll2Top.svelte"
 
   let aboutPage
   let texts = []
   let menuOpen = false
+  let showScrollToTopButton = false
 
   onMount(() => {
     texts = [myDetails.name, ...myDetails.runningText]
@@ -27,11 +29,19 @@
     let contact = document.getElementById("contact")
     contact.scrollIntoView({ behavior: "smooth" })
   }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scroll animation
+    })
+  }
 </script>
 
-<div class="flex flex-col overflow-x-hidden">
+<div class="flex flex-col {menuOpen ? 'overflow-hidden h-full' : 'overflow-x-hidden'} ">
   <div class="relative flex flex-col min-h-screen select-none w-screen overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
-    <TopScroll />
+    {#if !menuOpen}
+      <TopScroll bind:showScrollToTopButton />
+    {/if}
     <NewNavBar {myDetails} bind:menuOpen />
 
     <IntroPage on:click={scrollToContact} bind:texts {myDetails} />
@@ -60,4 +70,5 @@
   <div id="contact">
     <Contact />
   </div>
+  <Scroll2Top bind:showScrollToTopButton on:click={scrollToTop} />
 </div>
