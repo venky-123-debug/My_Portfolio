@@ -1,7 +1,6 @@
 <script>
-  import Router from "svelte-spa-router"
-  import routes from "./Routes/route"
   import { onMount } from "svelte"
+  import Home from "./pages/home/index.svelte"
 
   onMount(() => {
     setTimeout(() => {
@@ -13,12 +12,7 @@
   })
 </script>
 
-<!-- <div class="relative">
-  <div class="height"> -->
-<Router {routes} />
-
-<!-- </div> -->
-<!-- </div> -->
+<Home />
 
 <style global lang="postcss">
   @tailwind base;
