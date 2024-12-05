@@ -76,7 +76,9 @@
 <div class="flex justify-center m-auto h-full w-screen">
   <div class="flex flex-col mx-auto gap-3">
     <div class="lg:text-2xl sm:text-base md:text-lg text-sm font-medium text-gray-300 text-center">Hello World</div>
-    <span class="lg:text-2xl sm:text-base md:text-lg text-sm text-center font-semibold text-white">I'm&nbsp;</span>
+    <span class="lg:text-2xl sm:text-base md:text-lg text-sm text-center font-semibold text-white">
+      I'm&nbsp; <span class="text-color font-bold text-2xl">{myDetails.name}</span>
+    </span>
     <div class="lg:h-[48px] h-5 sm:h-10 flex justify-center items-center">
       {#if visibleText}
         <span class="lg:text-5xl sm:text-base md:text-lg text-sm font-semibold text-color" transition:typewriter={{ speed: 1 }}>

@@ -16,7 +16,7 @@
   let showScrollToTopButton = false
 
   onMount(() => {
-    texts = [myDetails.name, ...myDetails.runningText]
+    texts = [...myDetails.runningText]
   })
 
   onDestroy(() => {
