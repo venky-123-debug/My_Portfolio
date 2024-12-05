@@ -36,7 +36,7 @@
 
   <div class="flex w-full pt-3 items-start justify-center gap-6">
     <div class="w-full flex flex-col gap-6">
-      {#each items as item (item.year)}
+      {#each myDetails?.educationalQualification as item}
         <EducationCard {item} />
       {/each}
     </div>
