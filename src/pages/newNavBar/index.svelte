@@ -24,12 +24,12 @@
 <div class="fixed w-screen {menuOpen ? 'bg-black z-50  min-h-screen' : 'z-10'} overflow-hidden flex-col p-6">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a>
-      <div class="flex-1">
+      <!-- <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a> -->
+      <button type="button" class="flex-1 hover:scale-110 transition duration-100">
         <div class="text-xl color font-semibold">
-          {myDetails.name}
+          {`</ ${myDetails.name} >`}
         </div>
-      </div>
+      </button>
     </div>
     <button
       on:click={() => {

@@ -20,7 +20,7 @@
   }
 </script>
 
-<div class="flex items-start gap-3 fixed top-20 z-50 right-0">
+<div class="flex items-start gap-3 fixed top-20 z-10 right-0">
   <button
     on:click={() => {
       showColorPicker = !showColorPicker
