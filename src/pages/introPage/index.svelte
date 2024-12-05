@@ -77,7 +77,10 @@
   <div class="flex flex-col mx-auto gap-3">
     <div class="lg:text-2xl sm:text-base md:text-lg text-sm font-medium text-gray-300 text-center">Hello World</div>
     <span class="lg:text-2xl sm:text-base md:text-lg text-sm text-center font-semibold text-white">
-      I'm&nbsp; <span class="text-color font-bold text-2xl">{myDetails.name}</span>
+      I'm&nbsp; <span class="text-color font-bold lg:text-4xl sm:text-lg md:text-xl text-base">{myDetails.name}</span>
+    </span>
+    <span class="lg:text-4xl sm:text-lg md:text-xl text-base text-color font-bold text-center text-white">
+      <span class="">{myDetails.role}</span>
     </span>
     <div class="lg:h-[48px] h-5 sm:h-10 flex justify-center items-center">
       {#if visibleText}

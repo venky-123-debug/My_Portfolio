@@ -2,7 +2,8 @@ module.exports.myDetails = {
   name: "Venkatesh C",
   email: "venkatbe26494@gmail.com",
   phone: "7402161837",
-  runningText: ["a Full Stack Web Developer.", "Skilled in Svelte & TailwindCSS.", "Building seamless user experiences.", "Experienced with Node.js & MongoDB.", "Experienced with GIT & NGINX."],
+  role: "Full Stack Web Developer",
+  runningText: ["Skilled in Svelte & TailwindCSS.", "Building seamless user experiences.", "Experienced with Node.js & MongoDB.", "Experienced with GIT & NGINX."],
   socials: [
     {
       type: "LinkedIn",
