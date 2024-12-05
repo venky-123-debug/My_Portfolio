@@ -21,7 +21,7 @@
   }
 </script>
 
-<div class="fixed w-screen {menuOpen ? 'bg-black z-50  min-h-screen' : 'z-10'} overflow-hidden flex-col p-6">
+<div class="fixed w-screen {menuOpen ? 'bg-black z-50 min-h-screen' : 'z-10 bg-opacity-50 backdrop-blur-md'} overflow-hidden flex-col p-6">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <!-- <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a> -->
