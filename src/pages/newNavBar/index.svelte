@@ -27,7 +27,7 @@
       <!-- <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a> -->
       <button type="button" class="flex-1 hover:scale-110 transition duration-100">
         <div class="text-xl color font-semibold">
-          {`</ ${myDetails.name} >`}
+          {`< ${myDetails.name} />`}
         </div>
       </button>
     </div>
