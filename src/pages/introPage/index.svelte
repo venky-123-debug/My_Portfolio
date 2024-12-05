@@ -1,6 +1,7 @@
 <script>
   import { afterUpdate, onDestroy, onMount } from "svelte"
   import Icons from "../home/icons.svelte"
+  import Button from "../../shared/button.svelte"
 
   export let texts = []
   export let myDetails = {}
@@ -92,8 +93,11 @@
       {/if}
     </div>
     <div class="lg:text-2xl sm:text-base md:text-lg text-sm mt-3 font-normal text-gray-300 text-center">Based in {myDetails?.personalInfo?.city}, {myDetails?.personalInfo?.state}</div>
-    <div class="text-center mt-6">
+    <!-- <div class="text-center mt-6">
       <button type="button" on:click class="rounded-md w-32 border border-green-300 bg-transparent py-2 text-sm font-medium text-white hover:bg-green-600 active:bg-green-500">Hire Me</button>
+    </div> -->
+    <div class="text-center mt-6">
+      <Button on:click type="button" title="Hire Me" className="bg-blue-600 hover:bg-blue-500 active:bg-blue-600" />
     </div>
   </div>
 </div>
