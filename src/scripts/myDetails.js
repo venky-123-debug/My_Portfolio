@@ -66,12 +66,14 @@ module.exports.myDetails = {
       company: "Docchain.io by Print2Block",
       startDate: "November 2022",
       current: true,
+      objective: "Working on full stack projects using MESN (MongoDB, Express, Svelte and NodeJS) and TailwindCss for FrontEnd styling.",
     },
     {
       role: "Full Stack Software Developer Intern",
       company: "Docchain.io by Print2Block",
       startDate: "July 2022",
       endDate: "November 2022",
+      objective: "Learnt about MESN (MongoDB, Express, Svelte and NodeJS) stack and did projects in Handlebars and Bootstrap v5 focused on REST API. ",
     },
   ],
   projects: [

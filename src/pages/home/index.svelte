@@ -49,6 +49,8 @@
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
       <!-- svelte-ignore missing-declaration -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
+
+      <!-- <i on:click={scrollToAbout} class="fa-solid fa-computer-mouse cursor-pointer fa-xl h-10 border border-[#a0a1a533] rounded-full flex items-center justify-center"></i> -->
       <i on:click={scrollToAbout} class="fa-solid fa-chevron-down cursor-pointer fa-bounce fa-xl h-10 w-10 border border-[#a0a1a533] rounded-full flex items-center justify-center" />
     </div>
   </div>

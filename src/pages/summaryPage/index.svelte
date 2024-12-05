@@ -1,4 +1,5 @@
 <script>
+  import { myDetails } from "../../scripts/myDetails"
   import EducationCard from "./components/educationCard.svelte"
   import Experince from "./components/experince.svelte"
 
@@ -26,7 +27,7 @@
   <div class="text-3xl font-bold pt-6 text-gray-200">Experience:</div>
   <div class="flex w-full pt-3 items-start justify-center gap-6">
     <div class="w-full flex flex-col gap-6">
-      {#each experience as item (item.startYear)}
+      {#each myDetails?.professionalExperience as item}
         <Experince {item} />
       {/each}
     </div>
