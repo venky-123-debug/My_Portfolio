@@ -37,11 +37,13 @@
   }
 </script>
 
-<div id="home" class="flex flex-col overflow-x-hidden">
+<!-- <div class="flex fex-col overflow-x-hidden"> -->
+<div id="home" class="flex flex-col m-auto overflow-x-hidden">
   <div class="relative flex flex-col select-none w-screen {!menuOpen ? 'overflow-hidden min-h-screen' : ''} bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
     {#if !menuOpen}
       <TopScroll bind:showScrollToTopButton />
     {/if}
+
     <NewNavBar {myDetails} bind:menuOpen />
 
     <IntroPage on:click={scrollToContact} bind:texts {myDetails} />
@@ -67,3 +69,5 @@
   </div>
   <Scroll2Top bind:showScrollToTopButton on:click={scrollToTop} />
 </div>
+
+<!-- </div> -->

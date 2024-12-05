@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte"
   import Home from "./pages/home/index.svelte"
+  import ColorPicker from "./shared/colorPicker.svelte"
 
   onMount(() => {
     setTimeout(() => {
@@ -12,7 +13,10 @@
   })
 </script>
 
-<Home />
+<div>
+  <Home />
+  <ColorPicker />
+</div>
 
 <style global lang="postcss">
   @tailwind base;
