@@ -55,7 +55,7 @@
     </div>
   </div>
   <div id="about" bind:this={aboutPage}>
-    <About />
+    <About {myDetails} />
   </div>
   <!-- <Cv /> -->
   <div id="services">

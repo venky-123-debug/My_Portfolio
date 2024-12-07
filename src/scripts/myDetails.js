@@ -4,6 +4,7 @@ module.exports.myDetails = {
   phone: "7402161837",
   role: "Full Stack Web Developer",
   runningText: ["Skilled in Svelte & TailwindCSS.", "Building seamless user experiences.", "Experienced with Node.js & MongoDB.", "Experienced with GIT & NGINX."],
+
   socials: [
     {
       type: "LinkedIn",

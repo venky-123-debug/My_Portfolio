@@ -1,5 +1,11 @@
 <script>
-  import Details from "./components/details.svelte"
+  export let myDetails = {}
+  let dynamicExperience = (() => {
+    let diff = new Date() - new Date(2022, 10) // November 2022 (month index 10)
+    let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25))
+    let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44))
+    return `${years} year${years !== 1 ? "s" : ""}${months > 0 ? ` ${months} month${months !== 1 ? "s" : ""}` : ""}`
+  })()
 </script>
 
 <div class="flex flex-col m-auto bg-aboutBg w-screen min-h-screen overflow-hidden p-8">
@@ -16,25 +22,51 @@
   <div class="flex w-full pt-24 items-start gap-6">
     <div class="w-4/6 flex flex-col gap-3">
       <div class="text-3xl font-bold text-white">
-        I'm <strong class="text-green-300">Venkatesh. C,</strong>
-        a Web Developer
+        A Passionate&nbsp;
+        <strong class="color">{myDetails.role}</strong>
       </div>
-      <div class="text-lg text-justify font-normal text-gray-400">Results-driven web developer with a passion for creating efficient, user-friendly, and visually appealing websites. Leveraging a strong foundation in front-end and back-end technologies, I aim to contribute innovative solutions to enhance user experiences.</div>
-      <div class="text-lg text-justify font-normal text-gray-400">Seeking a challenging role where I can apply my technical skills, creativity, and dedication to deliver high-quality web applications while staying abreast of emerging trends and technologies in the ever-evolving world of web development.</div>
+      <div class="text-lg font-normal text-gray-400">Results-driven web developer specializing in crafting efficient, scalable, and visually appealing web solutions. Skilled in front-end frameworks, back-end APIs, and full-stack development. I am passionate about solving complex challenges and staying up-to-date with cutting-edge technologies.</div>
+
+      <!-- <div class="mt-6 text-lg font-normal text-gray-400">
+        <strong>Highlights:</strong>
+        <ul class="list-disc pl-6 mt-2">
+          <li>Developed a secure document-verification system for Docchain.io.</li>
+          <li>Led the development of an interactive web portal with 1,000+ users.</li>
+          <li>Certified in Full Stack Web Development (e.g., by XYZ).</li>
+        </ul>
+      </div> -->
+
+      <!-- <div class="flex flex-wrap gap-2 mt-4">
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">JavaScript</span>
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">Node.js</span>
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">Svelte</span>
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">MongoDB</span>
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">Docker</span>
+        <span class="px-3 py-1 bg-gray-800 rounded-full text-green-300">Tailwind CSS</span>
+      </div> -->
     </div>
-    <div class="w-2/6">
+
+    <!-- <div class="w-2/6">
       <Details />
-    </div>
+    </div> -->
   </div>
 
   <div class="pt-8 flex items-center justify-around w-full">
-    <div class="flex flex-col w-1/2 items-center justify-center border-r border-gray-500">
-      <div class="text-5xl font-bold text-gray-400">1+</div>
-      <div class="text-xl font-semi text-gray-500">Years Experiance</div>
+    <div class="flex flex-col w-1/2 gap-3 items-center justify-center border-r border-gray-500">
+      <div class="text-5xl font-bold text-gray-500">{dynamicExperience}</div>
+      <div class="text-2xl font-semibold color">Experience</div>
     </div>
     <div class="flex flex-col w-1/2 items-center justify-center">
-      <div class="text-5xl font-bold text-gray-400">1+</div>
-      <div class="text-xl font-semi text-gray-500">Projects Done</div>
+      <div class="text-5xl font-bold text-gray-500">1+</div>
+      <div class="text-2xl font-semibold color">Projects Done</div>
     </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="text-center mt-8">
+    <a href="/assets/resume/venkatesh_resume.pdf" download="Venkatesh_C_Resume.pdf" class="inline-flex items-center rounded-md px-6 py-3 border border-green-300 bg-transparent text-green-300 hover:bg-green-600 hover:text-white">
+      <i class="fa-solid fa-download mr-2"></i>
+      Download My Resume
+    </a>
   </div>
 </div>
