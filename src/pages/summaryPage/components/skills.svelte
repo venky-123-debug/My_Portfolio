@@ -58,7 +58,7 @@
     </div>
   </a>
   <!-- mondodb -->
-  <a href="https://www.mongodb.com" class="flex items-center justify-center h-16 hover:scale-105 transition duration-150 card bg-[#000000cc] w-full p-3 rounded-md">
+  <a href="https://www.mongodb.com" target="_blank" class="flex items-center justify-center h-16 hover:scale-105 transition duration-150 card bg-[#000000cc] w-full p-3 rounded-md">
     <div class="text-[#599636] w-auto flex items-center justify-center h-full text-lg font-semibold">MongoDB</div>
     <div class="w-16 h-full pl-2 flex items-center justify-center">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598.88 1333.33" class="w-10 h-10" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd">
