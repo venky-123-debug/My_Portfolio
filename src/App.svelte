@@ -41,4 +41,7 @@
     -webkit-appearance: none;
     margin: 0;
   }
+  .card:hover {
+    box-shadow: 0 4px 12px var(--color); /* Apply shadow with CSS variable */
+  }
 </style>
