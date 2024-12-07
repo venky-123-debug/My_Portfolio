@@ -64,7 +64,7 @@
 
   <!-- Call to Action -->
   <div class="text-center mt-8">
-    <a href="/assets/resume/venkatesh_resume.pdf" download="Venkatesh_C_Resume.pdf" class="inline-flex items-center rounded-md px-6 py-3 border border-green-300 bg-transparent text-green-300 hover:bg-green-600 hover:text-white">
+    <a href="/assets/resume/venkat_resume.pdf" download="Venkatesh_C_Resume.pdf" class="inline-flex items-center rounded-md px-6 py-3 border border-green-300 bg-transparent text-green-300 hover:bg-green-600 hover:text-white">
       <i class="fa-solid fa-download mr-2"></i>
       Download My Resume
     </a>
