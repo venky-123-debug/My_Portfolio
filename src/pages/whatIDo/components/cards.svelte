@@ -22,8 +22,8 @@
 <div class="flex items-center gap-3">
   <div class="w-24 h-24 aspect-square bg-aboutBg items-center justify-center flex rounded-md">
     <div></div>
-    <div class="text-primaryGreen text-4xl">
-      <i class="{item.logo}"></i>
+    <div class="color text-4xl">
+      <i class={item.logo}></i>
     </div>
   </div>
   <div class="flex flex-col gap-1">
@@ -31,4 +31,3 @@
     <div class="text-lg text-gray-400 text-justify">{item.description}</div>
   </div>
 </div>
-
