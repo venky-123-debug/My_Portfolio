@@ -24,7 +24,7 @@
   let currentIndex = 1 // Start at the first card (to show the first one correctly)
   let totalItems = tools.length
   let clonedTools = [...tools, tools[0]] // Clone the first item at the end for smooth looping
-
+  let duration = 1500
   const updateCarousel = () => {
     const translateValue = -(currentIndex * 100)
     carouselContainer.style.transform = `translateX(${translateValue}%)`
@@ -39,7 +39,7 @@
       setTimeout(() => {
         currentIndex = 1 // Skip to the first original item
         updateCarousel()
-      }, 500) // Timeout should match the transition duration
+      }, duration) // Timeout should match the transition duration
     }
 
     updateCarousel()
@@ -64,49 +64,42 @@
 
   // Auto-advance the carousel every 3 seconds
   onMount(() => {
-    const interval = setInterval(nextCard, 3000)
+    const interval = setInterval(nextCard, duration)
     return () => clearInterval(interval)
   })
 </script>
 
 <div class="text-3xl font-bold pt-6 text-gray-200">Tools&nbsp;/&nbsp;SDK:</div>
 
-<!-- Carousel container -->
-<div class="carousel-container overflow-hidden relative">
-  <div class="flex transition-transform duration-500 ease-in-out" bind:this={carouselContainer}>
-    {#each clonedTools as { name, url, icon, bgColor, textColor }, index}
-      <a href={url} target="_blank" style="background-color: {bgColor};" class="flex-shrink-0 w-full p-3 rounded-md flex items-center justify-center hover:scale-105 transition duration-150 card">
-        <div class="text-lg font-semibold" style="color: {textColor};">
-          {name}
-        </div>
-        <div class="pl-2 flex items-center justify-center w-16">
-          <svelte:component this={icon} />
-        </div>
-      </a>
-    {/each}
+<div class="flex items-center gap-3 pt-6 justify-between h-16">
+  <button type="button" class="bg-[#000000cc] text-center rounded-md p-3 w-10 min-h-full" on:click={prevCard}><i class="fa-solid fa-chevron-left text-color" /></button>
+  <div class="w-full text-center overflow-hidden min-h-full">
+    <div class="flex transition-transform duration-500 ease-in-out" bind:this={carouselContainer}>
+      {#each clonedTools as { name, url, icon, bgColor, textColor }, index}
+        <a href={url} target="_blank" style="background-color: {bgColor};" class="flex-shrink-0 w-full p-3 rounded-md flex items-center justify-center hover:scale-105 transition duration-150 card">
+          <div class="text-lg font-semibold" style="color: {textColor};">
+            {name}
+          </div>
+          <div class="pl-2 flex items-center justify-center w-16">
+            <svelte:component this={icon} />
+          </div>
+        </a>
+      {/each}
+    </div>
   </div>
-
-  <!-- Chevron buttons -->
-  <button class="chevron left" on:click={prevCard}>&lt;</button>
-  <button class="chevron right" on:click={nextCard}>&gt;</button>
+  <button type="button" class="bg-[#000000cc] text-center p-3 w-10 rounded-md min-h-full" on:click={nextCard}><i class="fa-solid fa-chevron-right text-color" /></button>
 </div>
 
 <!-- Dots Navigation -->
-<div class="dots-navigation">
+<div class="text-center mt-6">
   {#each tools as _, index}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <span class="dot" on:click={() => goToCard(index)} class:selected={index === currentIndex}></span>
   {/each}
 </div>
 
 <style>
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    height: 200px;
-  }
-
   .card {
-    height: 200px; /* Adjust height as per your card's size */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,31 +108,6 @@
   /* Add smooth transition effect */
   .transition-transform {
     transition: transform 0.5s ease-in-out;
-  }
-
-  /* Chevron buttons */
-  .chevron {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  .chevron.left {
-    left: 10px;
-  }
-
-  .chevron.right {
-    right: 10px;
-  }
-
-  .dots-navigation {
-    text-align: center;
-    margin-top: 20px;
   }
 
   .dot {
