@@ -21,8 +21,9 @@
   ]
 
   let carouselContainer
-  let currentIndex = 0
+  let currentIndex = 1 // Start at the first card (to show the first one correctly)
   let totalItems = tools.length
+  let clonedTools = [...tools, tools[0]] // Clone the first item at the end for smooth looping
 
   const updateCarousel = () => {
     const translateValue = -(currentIndex * 100)
@@ -30,17 +31,34 @@
   }
 
   const nextCard = () => {
-    currentIndex = (currentIndex + 1) % totalItems
+    // If we reach the last original item, move back to the first item (cloned one)
+    currentIndex = (currentIndex + 1) % clonedTools.length
+
+    // If the index points to the cloned first item, immediately jump back to the first original item
+    if (currentIndex === clonedTools.length - 1) {
+      setTimeout(() => {
+        currentIndex = 1 // Skip to the first original item
+        updateCarousel()
+      }, 500) // Timeout should match the transition duration
+    }
+
     updateCarousel()
   }
 
   const prevCard = () => {
-    currentIndex = (currentIndex - 1 + totalItems) % totalItems
+    // If we reach the first original item, move to the last cloned one
+    if (currentIndex === 0) {
+      currentIndex = clonedTools.length - 2
+      updateCarousel()
+      return
+    }
+
+    currentIndex = (currentIndex - 1 + clonedTools.length) % clonedTools.length
     updateCarousel()
   }
 
   const goToCard = (index) => {
-    currentIndex = index
+    currentIndex = index + 1 // Skip the cloned first card (starting from index 1)
     updateCarousel()
   }
 
@@ -56,7 +74,7 @@
 <!-- Carousel container -->
 <div class="carousel-container overflow-hidden relative">
   <div class="flex transition-transform duration-500 ease-in-out" bind:this={carouselContainer}>
-    {#each tools as { name, url, icon, bgColor, textColor }}
+    {#each clonedTools as { name, url, icon, bgColor, textColor }, index}
       <a href={url} target="_blank" style="background-color: {bgColor};" class="flex-shrink-0 w-full p-3 rounded-md flex items-center justify-center hover:scale-105 transition duration-150 card">
         <div class="text-lg font-semibold" style="color: {textColor};">
           {name}
@@ -76,7 +94,6 @@
 <!-- Dots Navigation -->
 <div class="dots-navigation">
   {#each tools as _, index}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <span class="dot" on:click={() => goToCard(index)} class:selected={index === currentIndex}></span>
   {/each}
 </div>
