@@ -22,39 +22,79 @@
 
   let carouselContainer
   let currentIndex = 1 // Start at the first card (to show the first one correctly)
-  let totalItems = tools.length
   let clonedTools = [...tools, tools[0]] // Clone the first item at the end for smooth looping
   let duration = 1500
-  const updateCarousel = () => {
-    const translateValue = -(currentIndex * 100)
-    carouselContainer.style.transform = `translateX(${translateValue}%)`
-  }
+  // const updateCarousel = () => {
+  //   const translateValue = -(currentIndex * 100)
+  //   carouselContainer.style.transform = `translateX(${translateValue}%)`
+  // }
 
+  // const nextCard = () => {
+  //   // If we reach the last original item, move back to the first item (cloned one)
+  //   currentIndex = (currentIndex + 1) % clonedTools.length
+
+  //   // If the index points to the cloned first item, immediately jump back to the first original item
+  //   if (currentIndex === clonedTools.length - 1) {
+  //     setTimeout(() => {
+  //       currentIndex = 1 // Skip to the first original item
+  //       updateCarousel()
+  //     }, duration) // Timeout should match the transition duration
+  //   }
+
+  //   updateCarousel()
+  // }
+
+  // const prevCard = () => {
+  //   // If we reach the first original item, move to the last cloned one
+  //   if (currentIndex === 0) {
+  //     currentIndex = clonedTools.length - 2
+  //     updateCarousel()
+  //     return
+  //   }
+
+  //   currentIndex = (currentIndex - 1 + clonedTools.length) % clonedTools.length
+  //   updateCarousel()
+  // }
+
+  const updateCarousel = () => {
+    if (currentIndex === 0) return // Avoid unnecessary updates when at the start
+
+    // Remove items before the current index and add them to the end of the array
+    clonedTools = [...clonedTools.slice(currentIndex), ...clonedTools.slice(0, currentIndex)]
+    currentIndex = 0 // Reset currentIndex since the array is rearranged
+
+    // Re-render carouselContainer and reset transform
+    setTimeout(() => {
+      carouselContainer.style.transition = "none" // Disable smooth transition
+      carouselContainer.style.transform = `translateX(0%)`
+
+      // Re-enable smooth transitions
+      setTimeout(() => {
+        carouselContainer.style.transition = "transform 0.5s ease-in-out"
+      })
+    }, 50) // Small delay for proper visual updates
+  }
   const nextCard = () => {
-    // If we reach the last original item, move back to the first item (cloned one)
     currentIndex = (currentIndex + 1) % clonedTools.length
 
-    // If the index points to the cloned first item, immediately jump back to the first original item
+    // When currentIndex reaches the end, dynamically rearrange the array
     if (currentIndex === clonedTools.length - 1) {
-      setTimeout(() => {
-        currentIndex = 1 // Skip to the first original item
-        updateCarousel()
-      }, duration) // Timeout should match the transition duration
+      updateCarousel() // Rearrange array to prevent jump
+    } else {
+      const translateValue = -(currentIndex * 100)
+      carouselContainer.style.transform = `translateX(${translateValue}%)`
     }
-
-    updateCarousel()
   }
-
   const prevCard = () => {
-    // If we reach the first original item, move to the last cloned one
-    if (currentIndex === 0) {
-      currentIndex = clonedTools.length - 2
-      updateCarousel()
-      return
-    }
-
     currentIndex = (currentIndex - 1 + clonedTools.length) % clonedTools.length
-    updateCarousel()
+
+    // When currentIndex reaches the beginning, dynamically rearrange the array
+    if (currentIndex === 0) {
+      updateCarousel() // Rearrange array to prevent jump
+    } else {
+      const translateValue = -(currentIndex * 100)
+      carouselContainer.style.transform = `translateX(${translateValue}%)`
+    }
   }
 
   const goToCard = (index) => {
