@@ -2,6 +2,7 @@
   import { onMount } from "svelte"
   import Home from "./pages/home/index.svelte"
   import ColorPicker from "./shared/colorPicker.svelte"
+  import Background from "./pages/background/index.svelte"
 
   onMount(() => {
     setTimeout(() => {
@@ -14,8 +15,10 @@
 </script>
 
 <div>
-  <Home />
+  <!-- <Home /> -->
   <ColorPicker />
+
+  <Background />
 </div>
 
 <style global lang="postcss">
