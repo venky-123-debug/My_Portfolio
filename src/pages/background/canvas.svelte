@@ -38,7 +38,7 @@
   })
 
   // Initialize canvas size and points
-  function initHeader() {
+  const initHeader = () => {
     width = window.innerWidth
     height = window.innerHeight
     target = { x: width / 2, y: height / 2 }
@@ -99,31 +99,31 @@
   }
 
   // Update the color of all circles when the CSS variable changes
-  function updateCircleColors() {
+  const updateCircleColors = () => {
     points.forEach((point) => {
       point.circle.color = currentColor
     })
   }
 
   // Event Handlers
-  function addListeners() {
+  const addListeners = () => {
     window.addEventListener("mousemove", mouseMove)
     window.addEventListener("scroll", scrollCheck)
     window.addEventListener("resize", resize)
   }
 
-  function mouseMove(e) {
+  const mouseMove = (e) => {
     const posx = e.pageX || e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
     const posy = e.pageY || e.clientY + document.body.scrollTop + document.documentElement.scrollTop
     target.x = posx
     target.y = posy
   }
 
-  function scrollCheck() {
+  const scrollCheck = () => {
     animateHeader = document.body.scrollTop <= height
   }
 
-  function resize() {
+  const resize = () => {
     width = window.innerWidth
     height = window.innerHeight
     largeHeader.style.height = `${height}px`
@@ -132,11 +132,11 @@
   }
 
   // Animation
-  function initAnimation() {
+  const initAnimation = () => {
     animate()
   }
 
-  function animate() {
+  const animate = () => {
     if (animateHeader) {
       ctx.clearRect(0, 0, width, height)
 
@@ -164,7 +164,7 @@
   }
 
   // Canvas manipulation
-  function drawLines(p) {
+  const drawLines = (p) => {
     if (!p.active) return
 
     p.closest.forEach((closestPoint) => {
@@ -192,7 +192,7 @@
   }
 
   // Utility function to calculate the distance
-  function getDistance(p1, p2) {
+  const getDistance = (p1, p2) => {
     return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
   }
 </script>
