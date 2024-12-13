@@ -1,9 +1,9 @@
 <script>
   let showColorPicker = false
   let colors = [
+    "#00909E", // Green
     "#F87171", // Red
     "#FBBF24", // Yellow
-    "#34D399", // Green
     "#60A5FA", // Blue
     "#A78BFA", // Purple
     // "#F472B6", // Pink
@@ -14,8 +14,10 @@
     "#6366F1", // Indigo
     "#E11D48", // Rose
   ]
+  let selectedColor = colors[0]
 
   const selectColor = (color) => {
+    selectedColor = color
     document.documentElement.style.setProperty("--color", color)
   }
 </script>
@@ -35,7 +37,7 @@
     <div class="flex order-1 flex-col items-center p-3 border rounded-md border-[#a0a1a533]">
       <div class="grid lg:grid-cols-4 grid-cols-2 gap-4">
         {#each colors as color}
-          <button type="button" class="w-6 h-6 rounded-md border-[#a0a1a533] shadow-md hover:scale-110 transform transition duration-200 focus:outline-none" style="background-color: {color}" on:click={() => selectColor(color)} aria-label="Select color">
+          <button type="button" disabled={selectedColor === color} class="w-8 h-8 border rounded-md {selectedColor === color ? 'border-blue-500 outline outline-offset-1' : 'border-[#a0a1a533]'} disabled:cursor-not-allowed hover:scale-110 transform transition duration-200 focus:outline-none" style="background-color: {color}" on:click={() => selectColor(color)} aria-label="Select color">
             <span class="sr-only">{color}</span>
           </button>
         {/each}

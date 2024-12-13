@@ -80,7 +80,7 @@
         </div>
       {:else}
         <div class="flex flex-col items-center space-y-3">
-          <svelte:component this={icon} class="w-16 h-16 transition-transform duration-200 group-hover:scale-110" />
+          <svelte:component this={icon} />
           <p class={`text-lg font-semibold ${textColor}`}>{name}</p>
         </div>
       {/if}
