@@ -68,7 +68,7 @@
   </div>
 
   <div id="contact">
-    <Contact />
+    <Contact {myDetails} />
   </div>
   <Scroll2Top bind:showScrollToTopButton on:click={scrollToTop} />
 </div>

@@ -1,7 +1,7 @@
 module.exports.myDetails = {
   name: "Venkatesh C",
   email: "venkatbe26494@gmail.com",
-  phone: "7402161837",
+  phone: "+917402161837",
   role: "Full Stack Web Developer",
   runningText: ["Skilled in Svelte & TailwindCSS.", "Building seamless user experiences.", "Experienced with Node.js & MongoDB.", "Experienced with GIT & NGINX."],
 
@@ -110,7 +110,7 @@ module.exports.myDetails = {
     city: "Chennai",
     state: "Tamil Nadu",
     languages: ["English", "Tamil", "Telugu"],
-    address: "Senthil Nagar, 8th Street, Vignesh Villa 2nd Floor, Perungudi, Chennai-96",
+    address: "Senthil Nagar, 8th Street, Vignesh Villa 2nd Floor, Perungudi, Chennai-600096",
   },
   declaration: "I hereby declare that the information furnished above is true and correct to the best of my knowledge and belief. I will solely be responsible for any discrepancy found in them.",
   signature: "Venkatesh C",
