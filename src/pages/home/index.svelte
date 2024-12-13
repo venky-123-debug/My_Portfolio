@@ -9,6 +9,7 @@
   import { myDetails } from "../../scripts/myDetails"
   import TopScroll from "../../shared/topScroll.svelte"
   import Scroll2Top from "../../shared/scroll2Top.svelte"
+  import Canvas from "../background/canvas.svelte"
 
   let aboutPage
   let texts = []
@@ -44,8 +45,9 @@
     {/if}
 
     <NewNavBar {myDetails} bind:menuOpen />
-
-    <IntroPage on:click={scrollToContact} bind:texts {myDetails} />
+    <Canvas>
+      <IntroPage on:click={scrollToContact} bind:texts {myDetails} />
+    </Canvas>
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center text-gray-300">
       <!-- svelte-ignore missing-declaration -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
