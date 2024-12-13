@@ -57,7 +57,7 @@
       <div class="text-2xl font-semibold color">Experience</div>
     </div>
     <div class="flex flex-col w-1/2 items-center justify-center">
-      <div class="text-5xl font-bold text-gray-500">1+</div>
+      <div class="text-5xl font-bold text-gray-500">{myDetails.projects.length}+</div>
       <div class="text-2xl font-semibold color">Projects Done</div>
     </div>
   </div>
