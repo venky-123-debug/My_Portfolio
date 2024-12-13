@@ -4,28 +4,11 @@
   let width, height, largeHeader, canvas, ctx, points, target
   let animateHeader = true
   let animationFrameId
-  // Get the current value of --color from CSS
-  const getColorFromCSS = () => {
-    return getComputedStyle(document.documentElement).getPropertyValue("--color").trim()
-  }
-  let currentColor = getColorFromCSS() // Reactive color variable
 
   onMount(() => {
     initHeader()
     initAnimation()
     addListeners()
-
-    // Watch for changes in --color and update currentColor
-    const observer = new MutationObserver(() => {
-      currentColor = getColorFromCSS()
-      updateCircleColors() // Update all circle colors when the root color changes
-    })
-
-    // Start observing changes to the --color property on the root element
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["style"],
-    })
 
     // Cleanup event listeners when the component is destroyed
     return () => {
@@ -33,7 +16,6 @@
       window.removeEventListener("scroll", scrollCheck)
       window.removeEventListener("resize", resize)
       cancelAnimationFrame(animationFrameId) // Cleanup animation frame
-      observer.disconnect() // Stop observing when the component is destroyed
     }
   })
 
@@ -46,6 +28,7 @@
     largeHeader = document.getElementById("large-header")
     largeHeader.style.height = `${height}px`
 
+    // canvas = document.getElementById("demo-canvas")
     canvas.width = width
     canvas.height = height
     ctx = canvas.getContext("2d")
@@ -91,20 +74,17 @@
       p1.closest = closest
     }
 
-    // Create circles for each point with the current color
+    // Create circles for each point
     for (let i in points) {
-      const c = new Circle(points[i], 2 + Math.random() * 2, currentColor)
+      const c = new Circle(points[i], 2 + Math.random() * 2, getColorFromCSS())
+
+      // const c = new Circle(points[i], 2 + Math.random() * 2, "rgba(255,255,255,0.3)")
       points[i].circle = c
     }
   }
-
-  // Update the color of all circles when the CSS variable changes
-  function updateCircleColors() {
-    points.forEach((point) => {
-      point.circle.color = currentColor
-    })
+  const getColorFromCSS = () => {
+    return getComputedStyle(document.documentElement).getPropertyValue("--color").trim()
   }
-
   // Event Handlers
   function addListeners() {
     window.addEventListener("mousemove", mouseMove)
@@ -113,6 +93,7 @@
   }
 
   function mouseMove(e) {
+    getColorFromCSS()
     const posx = e.pageX || e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
     const posy = e.pageY || e.clientY + document.body.scrollTop + document.documentElement.scrollTop
     target.x = posx
@@ -120,10 +101,15 @@
   }
 
   function scrollCheck() {
+    getColorFromCSS()
+
     animateHeader = document.body.scrollTop <= height
   }
-
+  $: {
+    console.log(getColorFromCSS())
+  }
   function resize() {
+    getColorFromCSS()
     width = window.innerWidth
     height = window.innerHeight
     largeHeader.style.height = `${height}px`
@@ -141,6 +127,7 @@
       ctx.clearRect(0, 0, width, height)
 
       points.forEach((point) => {
+        // Detect points in range of the mouse target
         if (Math.abs(getDistance(target, point)) < 4000) {
           point.active = 0.3
           point.circle.active = 0.6
@@ -156,10 +143,11 @@
         }
 
         drawLines(point)
-        point.circle.draw() // Draw circle with current color
+        point.circle.draw()
       })
     }
 
+    // Request the next animation frame
     animationFrameId = requestAnimationFrame(animate)
   }
 
@@ -186,7 +174,7 @@
       if (!this.active) return
       ctx.beginPath()
       ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
-      ctx.fillStyle = this.color ? this.color : `rgba(156,217,249,${this.active})`
+      ctx.fillStyle = `rgba(156,217,249,${this.active})`
       ctx.fill()
     }
   }
@@ -197,6 +185,7 @@
   }
 </script>
 
+<!-- <svelte:window on:mousemove={mouseMove} on:scroll={scrollCheck} on:resize={resize} /> -->
 <div id="large-header" class="relative w-full bg-cover bg-center backdrop-blur-md bg-opacity-50">
   <canvas bind:this={canvas} class="w-full h-full"></canvas>
 </div>
