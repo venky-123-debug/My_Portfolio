@@ -21,12 +21,12 @@ let textarea
         <span class="text-8xl opacity-20 color font-bold relative z-10">CONTACT</span>
         <div class="absolute w-3/4 mx-auto text-white text-4xl font-bold top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           Get In Touch
-          <div class="border mt-3 border-green-300 border-b-2 w-1/4 mx-auto" />
+          <div class="border mt-3 border-green-300 border-b-2 w-[16%] mx-auto" />
         </div>
       </div>
     </div>
     <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-      <div class="relative px-6 lg:static pt-16">
+      <div class="relative px-6 lg:static pt-16 pb-6">
         <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
           <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
             <svg class="absolute inset-0 h-full w-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
@@ -44,7 +44,7 @@ let textarea
               <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20" style="clip-path: polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)"></div>
             </div>
           </div>
-          <h2 class="text-3xl font-bold tracking-tight text-white">Get in touch</h2>
+          <h2 class="text-4xl font-bold tracking-tight color">Lets's Collaborate</h2>
           <p class="mt-6 text-lg leading-8 text-gray-300 text-justify">Feel free to drop me a message using the contact form below. I look forward to hearing from you and discussing potential collaborations, opportunities, or just having a friendly chat about my portfolio. Your feedback is highly valued!</p>
           <dl class="mt-10 space-y-4 text-base leading-7 text-gray-300">
             <div class="flex gap-x-4">
