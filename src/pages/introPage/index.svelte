@@ -105,7 +105,7 @@
   </div>
 </div>
 
-<Icons />
+<Icons {myDetails} />
 
 <style>
   .text-color {

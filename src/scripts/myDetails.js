@@ -14,6 +14,14 @@ module.exports.myDetails = {
       type: "GitHub",
       url: "https://github.com/venky-123-debug",
     },
+    {
+      type: "Telegram",
+      url: "https://t.me/venkatesh_c_dev",
+    },
+    {
+      type: "Gmail",
+      url: "venkatbe26494@gmail.com",
+    },
   ],
   professionalObjective: "Aiming to excel in IT by embracing new roles, responsibilities, and technologies. Seeking a Full Stack Software Developer role to leverage my skills in crafting efficient, scalable solutions that drive user satisfaction and business growth.",
   professionalSummary: {

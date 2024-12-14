@@ -1,28 +1,44 @@
-<div class="absolute flex flex-col gap-6 bottom-[40%] left-[10%]">
-  <!-- <button type="button" class="color hover:bg-opacity-50 hover:scale-75 flex items-center justify-center transition duration-75 h-10 w-10"> -->
-  <a href="https://www.linkedin.com/in/venkatesh-chandran-4412439a/" target="_blank">
-    <i class="fa-brands fa-linkedin text-blue-500 fa-2xl"></i>
-  </a>
-  <!-- </button> -->
-  <a href="https://github.com/venky-123-debug" target="_blank">
-    <i class="fa-brands fa-github fa-2xl text-white"></i>
-  </a>
-  <a href="https://t.me/venkatesh_c_dev" target="_blank">
-    <i class="fa-brands fa-telegram fa-2xl text-cyan-500"></i>
-  </a>
-  <a href="mailto:venkatbe26494@gmail.com" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="52 42 88 66" class=" w-[2rem] h-[2rem]">
-      <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6" />
-      <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15" />
-      <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2" />
-      <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
-      <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
-    </svg>
-  </a>
-</div>
+<script>
+  import { onMount } from "svelte"
 
-<!-- <style>
-  .color :hover {
+  export let myDetails = {}
+  let iconsArray = ["fa-brands fa-linkedin text-blue-500", "fa-brands fa-github text-white", "fa-brands fa-telegram text-cyan-500", "fa-solid fa-envelope text-white"]
+
+  // Ensure icons are assigned when the component is initialized
+  onMount(() => {
+    if (myDetails?.socials?.length) {
+      // Map through socials and assign icons reactively
+      myDetails.socials = myDetails.socials.map((social, index) => ({
+        ...social,
+        icon: iconsArray[index % iconsArray.length], // Assign icons cyclically
+      }))
+    }
+  })
+
+  $: console.log(myDetails?.socials) // Debugging to check updated socials
+</script>
+
+{#if myDetails?.socials?.length}
+  <div class="absolute items-center gap-0 flex flex-col bottom-0 right-[10%]">
+    <!-- Render Social Links -->
+    {#each myDetails.socials as social, i}
+      <div class="flex flex-col items-center">
+        <!-- Line above the circle -->
+        {#if i > 0}
+          <div class="h-5 w-[0.2px] color"></div>
+        {/if}
+
+        <!-- Circle with Icon -->
+        <a href={social.url} target="_blank" class="relative flex hover:scale-110 h-8 w-8 items-center justify-center rounded-md border border-white text-center">
+          <i class={social.icon}></i>
+        </a>
+      </div>
+    {/each}
+  </div>
+{/if}
+
+<style>
+  .color {
     background-color: var(--color);
   }
-</style> -->
+</style>
