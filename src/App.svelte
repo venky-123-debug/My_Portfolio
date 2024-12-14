@@ -2,6 +2,7 @@
   import { onMount } from "svelte"
   import Home from "./pages/home/index.svelte"
   import ColorPicker from "./shared/colorPicker.svelte"
+  import Carousel from "./shared/carousel.svelte"
 
   onMount(() => {
     setTimeout(() => {
@@ -14,9 +15,9 @@
 </script>
 
 <div>
-  <Home />
-  <ColorPicker />
-
+  <!-- <Home />
+  <ColorPicker /> -->
+  <Carousel />
   <!-- <Background /> -->
 </div>
 

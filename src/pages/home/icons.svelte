@@ -2,7 +2,7 @@
   import { onMount } from "svelte"
 
   export let myDetails = {}
-  let iconsArray = ["fa-brands fa-linkedin text-blue-500", "fa-brands fa-github text-white", "fa-brands fa-telegram text-cyan-500", "fa-solid fa-envelope text-white"]
+  let iconsArray = ["fa-brands fa-linkedin", "fa-brands fa-github", "fa-brands fa-telegram", "fa-solid fa-envelope"]
 
   // Ensure icons are assigned when the component is initialized
   onMount(() => {
@@ -14,8 +14,6 @@
       }))
     }
   })
-
-  $: console.log(myDetails?.socials) // Debugging to check updated socials
 </script>
 
 {#if myDetails?.socials?.length}
@@ -29,8 +27,8 @@
         {/if}
 
         <!-- Circle with Icon -->
-        <a href={social.url} target="_blank" class="relative flex hover:scale-110 h-8 w-8 items-center justify-center rounded-md border border-white text-center">
-          <i class={social.icon}></i>
+        <a href={social.type === "Gmail" ? "mailto:" + social.url : social.url} target="_blank" class="relative flex hover:scale-110 h-8 w-8 items-center justify-center rounded-md border border-white text-center">
+          <i class="{social.icon} text-white"></i>
         </a>
       </div>
     {/each}
