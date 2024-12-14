@@ -15,9 +15,9 @@
 </script>
 
 <div>
-  <!-- <Home />
-  <ColorPicker /> -->
-  <Carousel />
+  <Home />
+  <ColorPicker />
+  <!-- <Carousel /> -->
   <!-- <Background /> -->
 </div>
 

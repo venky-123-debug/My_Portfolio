@@ -6,6 +6,7 @@
   import Mongodb from "../svg/mongodb.svelte"
   import Jwt from "../svg/jwt.svelte"
   import Redis from "../svg/redis.svelte"
+  import Carousel from "../../../shared/carousel.svelte"
 
   const tools = [
     {
@@ -65,25 +66,18 @@
       textColor: "text-red-300",
     },
   ]
-
-  let hoveredIndex = null // Track which card is hovered
+  let toolsDuplicated = [...tools, ...tools]
 </script>
 
-<div class="text-3xl font-bold pt-6 text-gray-200">Tools&nbsp;/&nbsp;SDK:</div>
+<div class="text-3xl font-bold pt-6 pb-3 text-gray-200">Tools&nbsp;/&nbsp;SDK:</div>
 
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
-  {#each tools as { name, description, url, icon, bgColor, textColor }, index}
-    <a href={url} target="_blank" class={`relative rounded-lg flex items-center justify-center p-5 shadow-lg transform transition-transform duration-200 hover:scale-105 ${bgColor}`} on:mouseenter={() => (hoveredIndex = index)} on:mouseleave={() => (hoveredIndex = null)}>
-      {#if hoveredIndex === index}
-        <div class={`absolute inset-0 flex items-center justify-center px-4 text-center text-lg font-semibold ${textColor} transition duration-300`}>
-          {description}
-        </div>
-      {:else}
-        <div class="flex flex-col items-center space-y-3">
-          <svelte:component this={icon} />
-          <p class={`text-lg font-semibold ${textColor}`}>{name}</p>
-        </div>
-      {/if}
+<Carousel>
+  {#each toolsDuplicated as { name, url, icon, bgColor, textColor }}
+    <a href={url} target="_blank" class={`relative rounded-lg flex items-center justify-center min-w-[262px] min-h-[64px] shadow-lg transform transition-transform duration-200 hover:scale-105 ${bgColor}`}>
+      <div class="flex items-center gap-3">
+        <svelte:component this={icon} />
+        <p class={`text-lg font-semibold ${textColor}`}>{name}</p>
+      </div>
     </a>
   {/each}
-</div>
+</Carousel>
