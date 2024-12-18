@@ -1,4 +1,5 @@
 <script>
+  import Logo from "../summaryPage/svg/logo.svelte"
   import Item from "./components/item.svelte"
 
   export let myDetails
@@ -25,11 +26,15 @@
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-3">
       <!-- <a href="/#" class="text-xl"><i class="fa-solid fa-code fa-flip color" /></a> -->
-      <button type="button" class="flex-1 hover:scale-110 transition duration-100">
-        <div class="text-xl color font-semibold">
+      <a href="/" class="flex-1">
+        <div class="text-xl color flex gap-2 items-center font-semibold">
+          <span class="w-6 aspect-square color bg-black bg-opacity-70 rounded-md">
+            <Logo />
+            <!-- <img class="w-6 aspect-square color bg-black bg-opacity-70 rounded-md" src="assets/logo.svg" alt="logo" /> -->
+          </span>
           {`< ${myDetails.name} />`}
         </div>
-      </button>
+      </a>
     </div>
     <button
       on:click={() => {
