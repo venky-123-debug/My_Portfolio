@@ -41,7 +41,7 @@
         menuOpen = !menuOpen
       }}
       type="button"
-      class="text-white hover:scale-110"
+      class="text-white hover:scale-110 pr-10"
     >
       <i class="fa-solid text-xl {menuOpen ? 'fa-x' : 'fa-bars text-lg'} "></i>
     </button>

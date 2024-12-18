@@ -7,6 +7,7 @@
   import Jwt from "../svg/jwt.svelte"
   import Redis from "../svg/redis.svelte"
   import Carousel from "../../../shared/carousel.svelte"
+  import SocketIo from "../svg/socket-io.svelte"
 
   const tools = [
     {
@@ -64,6 +65,14 @@
       icon: Redis,
       bgColor: "bg-black/80",
       textColor: "text-red-300",
+    },
+    {
+      name: "Socket IO",
+      description: "An open-source library that allows real-time, two-way communication between a server and a web client",
+      url: "https://socket.io/",
+      icon: SocketIo,
+      bgColor: "bg-black/80",
+      textColor: "text-blue",
     },
   ]
   let toolsDuplicated = [...tools, ...tools]
